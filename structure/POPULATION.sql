@@ -1,7 +1,5 @@
 USE SKATE_SHOP_CODER;
 
-SET GLOBAL local_infile = true;
-
 INSERT INTO MATERIAL (ID_MATERIAL, MATERIAL) 
 VALUES  (1,'guatambu'),
         (2,'maple'),
@@ -81,3 +79,13 @@ VALUES  (1,'efectivo'),
         (2,'credito'),
         (3,'transferencia'),
         (4,'cheque');
+
+INSERT INTO ARTICULO (ID_ARTICULO, DESCRIPCION, PRECIO, COSTO, ID_CAT, ID_TALLA, ID_TECNOLOGIA, ID_MATERIAL) 
+VALUES  (1,'Santa Cruz Screaming Hand',612.25,355.11,2,1,1,1),
+        (2,'Creature Navarrete Gravedigger',581.64,290.82,1,4,3,1),
+        (3,'Flip Oliveira DoughBoy',551.02,225.92,3,1,2,1),
+        (4,'Almost Ring Impact',549.99,236.50,1,1,1,1),
+        (5,'Alien WorkShop Spectrum',494.99,272.24,1,2,1,1),
+        (6,'Creature Provost Tripz',404.99,242.99,1,3,3,2),
+        (7,'Almost Mullen King',314.99,170.09,2,4,2,2);
+
