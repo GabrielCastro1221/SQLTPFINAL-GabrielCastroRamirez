@@ -10,4 +10,4 @@ services:
       - ./objects:/objects
       - ./structure:/structure
     ports:
-      - "80:80"
+      - "$PORT:$PORT"
