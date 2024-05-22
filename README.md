@@ -1,5 +1,7 @@
 # _***Sistema de ventas de un SkateShop***_
 
+![logos](./assets/img/logos.png)
+
 ## _***1. DESCRIPCION DEL SISTEMA DE VENTAS***_
 
 En esta sección se describe el funcionamiento de las ventas en un SkateShop para asi entender como es el flujo de los datos de las ventas y de los balances generales contables de la empresa, el skateshop tiene sucursales en 5 países de su region y distribuye sus productos en 21 ciudades dentro de estos países, Este se encarga de distribuir patinetas de diferentes marcas, modelos, tallas y tecnologías que se ajustan a las características de cada consumidor, para esto se requiere diseñar una base de datos donde se pueda almacenar toda esta informacion y asi tener un mayor entendimiento de como funciona la parte de ventas del skateshop.
@@ -420,7 +422,7 @@ Para realizar el Backup de la base de datos se hizo uso de la consola de windows
 
 ![1](./assets/img/1.png)
 
-+ A continuacion se debe ejecutar el archvo mysqldump.exe con el siguiente comando para realizar el backup, se le debe indicar el nombre de la base de datos y la ruta donde sera guardao el backup de los datos.
++ A continuacion se debe ejecutar el archvo mysqldump.exe para esto debemos ecribir el comando _***exit***_ que se devolvera una carpeta, y alli se ejecuta el siguiente comando para realizar el backup, se le debe indicar el nombre de la base de datos y la ruta donde sera guardao el backup de los datos.
 
 ![2](./assets/img/2.png)
 
