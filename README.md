@@ -2,7 +2,7 @@
 
 ## _***1. DESCRIPCION DEL SISTEMA DE VENTAS***_
 
-En esta sección se describe el funcionamiento de las ventas en un SkateShop para asi entender como es el flujo de los datos de las ventas y de los balances generales contables de la empresa, el skateshop tiene sucursales en 5 países de su region y distribuye sus productos en 21 ciudades dentro de estos países, Este se encarga de distribuir patinetas de diferentes marcas, modelos, tallas y tecnologías que se ajustan a las características de cada consumidor, para esto requerimos diseñar una base de datos donde podamos almacenar toda esta informacion y asi tener un mayor entendimiento de como funciona la parte de ventas del skateshop.
+En esta sección se describe el funcionamiento de las ventas en un SkateShop para asi entender como es el flujo de los datos de las ventas y de los balances generales contables de la empresa, el skateshop tiene sucursales en 5 países de su region y distribuye sus productos en 21 ciudades dentro de estos países, Este se encarga de distribuir patinetas de diferentes marcas, modelos, tallas y tecnologías que se ajustan a las características de cada consumidor, para esto se requiere diseñar una base de datos donde se pueda almacenar toda esta informacion y asi tener un mayor entendimiento de como funciona la parte de ventas del skateshop.
 
 La empresa tiene 3 tipos de clientes potenciales. Franquicias de SkateShops, SkateShops Grandes, SkateShops Pequeños a los cuales se distribuyen los productos que ordenan.
 
@@ -20,7 +20,7 @@ Material, Tecnologia, Marca, Talla.
 Cada uno de los productos ofrecidos por el skateShop tiene varias categorias dependiendo de sus caracteristicas:
 Alta, media, baja.
 
-La base de datos del skateshop nos debe permitir almacenar todos estos datos generados en las ventas para asi gestionar el flujo de los mismos de acuerdo a la facturacion obtenida por cada uno de los articulos que ofrece la empresa, esto es fundamental para ver como es el comportamiento de las ventas a lo lardo del tiempo
+La base de datos del skateshop nos debe permitir almacenar todos estos datos generados en las ventas para asi gestionar el flujo de los mismos de acuerdo a la facturacion obtenida por cada uno de los articulos que ofrece la empresa, esto es fundamental para ver como es el comportamiento de las ventas en el transcurso del tiempo
 
 ## 2. _***ENTIDADES Y ACTORES***_
 
@@ -145,7 +145,7 @@ La entidad _***FACTURACION***_ Se comporta como la tabla de hechos de nuestro si
 
 ## _***3. DIAGRAMA ENTIDAD RELACION***_
 
-En el siguiente diagrama Entidad-Relacion se puede observar como las entidades de la base de datos del skateshop se relacionan entre si, y ademas se puede observar que tipo de relaciones tiene entre ellas para poder analizar de una mejor manera como es el comportamiento de los datos.
+En el siguiente diagrama Entidad-Relacion (ER) se puede observar como las entidades de la base de datos del skateshop se relacionan entre si, y ademas se puede ver que tipo de relaciones tiene entre ellas y asi poder analizar de una mejor manera como es el comportamiento de los datos.
 
 ![DiagramaE-R](./assets/img/Diagrama_E-R_SkateShop.jpg)
 
@@ -322,44 +322,11 @@ FECHA                          | DATETIME             |-
 
 ![Modelo_Relacional](./assets/img/modelorelacional.png)
 
-## 6. IMPORTACION DE DATOS
+## 6. POPULATION
 
-los datos almacenados en las tablas de la base de datos se obtuvieron desde varios archivos _***.csv***_, para importar estos datos usamos el asistente virtual de _***PhpMyAdmin***_ para acceder a este asistente e importar los datos se hace lo siguiente:
+Para Cargar los datos a nuestra base de datos se hace uso de la query de incercion de datos _***INSERT INTO nombre_tabla (Camposde la tabla)***_, hay que tener en cuenta que dentro de los parentesis recibe como parametro cada uno de los campos de cada una de las tablas y estas deben coincidir con los datos de la creacion de tablas para que se puedan cargar correctamente.
 
-### _***Paso 1***_
-
-+ entrar al asistente _***PhpMyAdmin***_
-
-para acceder al asiste _***PhpMyAdmin***_ se abre el panel de control de Xampp para activar los servicios de _***Apache***_ y _***MySql***_.
-Una vez activos ambos servicios presionamos el boton admin situado enseguida del boton que inicia los servicos de MySql para abrir el asistente _***PhpMyAdmin***_ en el navegador.
-
-![Paso 1](./assets/img/paso1.png)
-![paso1.](./assets/img/paso1p.png)
-
-### _***Paso 2***_
-
-+ Seleccionar la tabla en la cual se van a importar los datos.
-
-El asistente de base de datos _***PhpMyAdmin***_ funciona de forma similar a MySql workbench, en la barra lateral izquierda aparecen todas las bases de datos creadas.
-
-+ Seleccionamos la base de datos del SkateShop y posteriormente la tabla a la cual queremos importar los datos, en este caso se eligio la tabla _***CIUDAD***_.
-+ Una vez seleccionada la tabla en la barra superior se presiona el boton import.
-
-![Paso 2](./assets/img/paso2.png)
-![Paso 2](./assets/img/paso2p.png)
-
-### _***Paso 3***_
-
-+ Se carga el archivo _***.csv***_
-
-+ Dentro de la pestaña _***import***_ aparecen varias opciones, primeramente se selecciona la opcion de elegir archivo y nos abrira el explorador de archivos y alli se selecciona el archivo _***.csv***_ que contiene los datos que se requieren cargar en la tabla y seleccionamos la opcion utf-8 para que sirvan los caracteres especiales del teclado.
-+ Luego en la opcion formato se le asigna la opcion _***CSV using LOAD_DATA***_ para que separe las columanas con ; y no con , y se puedan cargan los datos correctamente.
-+ Por ultimo se presiona el boton importar y se cargan los datos.
-
-![Paso 3](./assets/img/paso3.png)
-![Paso 3](./assets/img/paso3p.png)
-
-### Este proceso se repite para cada uno de los _***DataSets***_ que contienen los datos que se requieren para cargar dentro de las demas tablas de la base de datos
+![0](./assets/img/0.png)
 
 ## 7. _***VISTAS***_
 
@@ -431,8 +398,50 @@ Esta vista muestra en una tabla generada con consultas cual fue el cliente con e
 
 ### 11. _***USUARIOS Y ROLES***_
 
-### 12. _***BACKUP***_
+Se crean 3 usuarios con 3 tipos de roles Administrador, vendedor y usuario a cada uno de estos roles se le asignan sus repestivos permisos a lo hora de interactuar con la base de datos:
 
-### 13. _***DOCKER***_
++ _***Administrador:***_ Al rol administrador se le asignan todos los permisos, esto quiere decir que podra acceder a toda la base de datos y posteriormente podra crear, leer, actualizar y borrar los datos dentro de la base de datos.
+
++ _***Vendedor:***_ Al rol vendedor se le asignan los permisos solo para crear, leer y actualizar la informacion de la base de datos.
+
++ _***Usuario:***_ Al rol usuario se le asigna solo el permiso de leer la informacion de la base de datos.
+
+### 12. _***DOCKER***_
+
+Docker es una plataforma de código abierto que permite a los desarrolladores crear, implementar, ejecutar, actualizar y gestionar contenedores. Los contenedores son componentes estandarizados y ejecutables que combinan el código fuente de la aplicación con las bibliotecas y dependencias del sistema operativo necesarias para ejecutar ese código en cualquier entorno.
+
+Se le debe indicar al sistema de docker con que motor de base de datos se va a trabajar para asi poder crear la imagen y trabajar con la base de datos desde el servidor de Docker que es el que espera las peticiones de la API REST realizadas por el cliente Docker y gestiona las imágenes y los contenedores.
+
+### 13. _***BACKUP***_
+
+Para realizar el Backup de la base de datos se hizo uso de la consola de windows _***CMD***_ y se ejecutaron los siguientes comandos para llegar al objetivo:
+
++ Para ejecutar MySQL desde la consola de windows debemos ingresar la ruta de instacion de MySQL
+
+![1](./assets/img/1.png)
+
++ A continuacion se debe ejecutar el archvo mysqldump.exe con el siguiente comando para realizar el backup, se le debe indicar el nombre de la base de datos y la ruta donde sera guardao el backup de los datos.
+
+![2](./assets/img/2.png)
 
 ### 14. _***CARGA DEL PROYECTO EN GITHUB***_
+
+Los pasos para subir el proyecto final a la plataforma GitHub son los siguientes:
+
++ abrir consola de Git o cualquier consola (Se debe tener instalado Git).
+
++ Se ingresa a la Cuenta Personal de GitHub y se crea el repositorio dando click en la opcion crear nuevo repositorio.
+
++ Una vez es creado el repositorio en GitHub abrimos en la consola la ruta del proyecto final y se escriben los siguientes comandos.
+
++ _***git init:***_ Inicializa toda la carpeta de nuestro proyecto para ser subida al repositorio de GitHub.
+
++ _***git add .:***_ Agrega todos los archivos de la carpeta de nuestro proyecto al repositoria de GitHub.
+
++ _***git commit -m "Creacion Repositorio":***_ Confirma los cambios que se subiran al repositorio de GitHub.
+
++ _***git branch -M main:***_ Se cambia de la rama _***master***_ a la rama _***main***_ para poder subir los cambios al repositorio de GitHub.
+
++ _***git remote add origin https://github.com/GabrielCastro1221/SQLTPFINAL-GabrielCastroRamirez.git:***_ Indica la ruta que se le asignara al repositorio de GitHub en la cual seran publicados todos los archivos de nuestro proyecto.
+
++ _***git push -u origin main:***_ Se pushea toda la informacion el repositorio de GitHub.
